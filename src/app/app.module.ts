@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
 
-
+import {APP_BASE_HREF} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,7 @@ import { RegisterComponent } from './pages/register/register.component';
     AngularFireModule.initializeApp(environment.firebase),
  	  AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
