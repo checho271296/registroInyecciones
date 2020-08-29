@@ -1,0 +1,46 @@
+<h1 class="text-center mt-lg-5 titulos mt-5">Registros de Inyecciones Cholo</h1>
+
+<div class="row  " style="margin-top: 8%;">
+    <div class="col-lg-6  pt-5">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nivelAzucar">Nivel de azucar</label>
+                    <input [(ngModel)]="inyection.nivelAzucar" type="number" name="nivelAzucar" class="form-control" id="description">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fecha">Fecha Inyección</label>
+                    <input [(ngModel)]="inyection.fecha" type="date" name="fecha" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="hora">Hora de la inyección</label>
+                    <input [(ngModel)]="inyection.hora" type="time" name="hpra" class="form-control">
+                </div>
+            </div>
+            <button type="button" class="btn btn-success " (click)="registerInjection();">Guardar</button>
+        </form>
+    </div>
+    <div class="col-lg-6 pt-5">
+        <table class="table">
+            <thead class="principalColor">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Nivel de azucar</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let injection of injections">
+                    <td>{{injection.payload.doc.data().fecha}}</td>
+                    <td>{{injection.payload.doc.data().hora}}</td>
+                    <td>{{injection.payload.doc.data().nivelAzucar}} </td>
+                    <td><a class="linkTrash" (click)="deleteInjection(injection.payload.doc.id)"><i class="fa fa-trash "></i></a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
