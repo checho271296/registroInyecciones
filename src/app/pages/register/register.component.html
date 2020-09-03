@@ -2,7 +2,23 @@
 
 <div class="row  " style="margin-top: 8%;">
     <div class="col-lg-6  pt-5">
-        <form>
+
+        <h3>Información importante:</h3>
+        <button class="btn btn-outline-info" (click)="flagInfo = !flagInfo">Ver</button>
+        <div *ngIf="flagInfo" class="mt-5">
+            <p class="font-weight-bold">Inyecciones: </p>
+            <ul class="list-group">
+                <li class="list-group-item">Lechosa(blanca) Día-> 40 Noche -> 30.</li>
+                <li class="list-group-item">Simple Día -> 10 mañana y noche.</li>
+            </ul>
+            <p class="mt-2 font-weight-bold">Pastillas:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Mañana : 1 pastilla de Furesemida,Enalapril y Aspirina y 1/2 Carvedilol.</li>
+                <li class="list-group-item">Medio día : 1 pastilla Metformina.</li>
+                <li class="list-group-item">Noche: 1 pastilla Famotidina y Difendramina.</li>
+            </ul>
+        </div>
+        <form class="mt-5">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nivelAzucar">Nivel de azúcar</label>
@@ -20,6 +36,7 @@
                 </div>
             </div>
             <button type="button" class="btn btn-success " (click)="registerInjection();">Guardar</button>
+            <!-- <button type="button" class="btn btn-info ml-5" (click)="convert();">Dercargar pdf</button> -->
         </form>
     </div>
     <div class="col-lg-6 pt-5">
